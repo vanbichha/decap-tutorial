@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Lazy Fox Blog Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="post">Loading...</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    fetch('content/blog/2026-01-15-hello-world.md')
+      .then(response => response.text())
+      .then(raw => {
+        const parts = raw.split('---');
+        const frontmatter = parts[1];
+        const body = parts.slice(2).join('---');
+
+        const title = frontmatter.match(/title:\s*(.*)/)[1].trim();
+        const date = frontmatter.match(/date:\s*(.*)/)[1].trim();
+
+        document.getElementById('post').innerHTML = `
+          <article>
+            <h1>${title}</h1>
+            <time>${new Date(date).toLocaleDateString()}</time>
+            ${marked.parse(body)}
+          </article>
+        `;
+      });
+  </script>
+</body>
+
+</html>

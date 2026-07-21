@@ -1,0 +1,29 @@
+body {
+  font-family: -apple-system, sans-serif;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #222;
+  line-height: 1.6;
+  background: #fafafa;
+}
+
+article h1 {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+article time {
+  color: #888;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 24px;
+}
+
+article p {
+  margin-bottom: 16px;
+}
+
+article strong {
+  color: #111;
+}
